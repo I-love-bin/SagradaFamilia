@@ -11,9 +11,11 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -24,11 +26,15 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QStackedWidget *stackedWidget;
+    QWidget *page;
+    QPushButton *pushButton;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
-    QPushButton *pushButton;
+    QWidget *page_2;
+    QListView *listView;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -38,9 +44,17 @@ public:
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        layoutWidget = new QWidget(centralwidget);
+        stackedWidget = new QStackedWidget(centralwidget);
+        stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
+        stackedWidget->setGeometry(QRect(-1, -1, 801, 601));
+        page = new QWidget();
+        page->setObjectName(QString::fromUtf8("page"));
+        pushButton = new QPushButton(page);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(70, 140, 99, 31));
+        layoutWidget = new QWidget(page);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(210, 120, 122, 56));
+        layoutWidget->setGeometry(QRect(60, 60, 122, 56));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -54,10 +68,15 @@ public:
 
         verticalLayout->addWidget(radioButton_2, 0, Qt::AlignVCenter);
 
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(310, 210, 99, 31));
+        stackedWidget->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName(QString::fromUtf8("page_2"));
+        listView = new QListView(page_2);
+        listView->setObjectName(QString::fromUtf8("listView"));
+        listView->setGeometry(QRect(220, 10, 256, 561));
+        stackedWidget->addWidget(page_2);
         MainWindow->setCentralWidget(centralwidget);
+		//some resizing code
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
@@ -69,10 +88,10 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "SagradaFamilia", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Done", nullptr));
         radioButton->setText(QCoreApplication::translate("MainWindow", "ELF Parser", nullptr));
         radioButton_2->setText(QCoreApplication::translate("MainWindow", "Disassembler", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Done", nullptr));
     } // retranslateUi
 
 };

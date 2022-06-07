@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "parserwindow.h"
 #include "./ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -14,9 +13,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_released()
+void MainWindow::on_pushButton_clicked()
 {
-    ParserWindow w;
-    w.setFixedSize(500,300);
-    w.show();
+	ui->stackedWidget->setCurrentIndex(1);
+
 }
