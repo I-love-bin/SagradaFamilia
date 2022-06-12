@@ -49,6 +49,8 @@ public:
         stackedWidget->setGeometry(QRect(-1, -1, 801, 601));
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
+		//rename
+		//resize
         pushButton = new QPushButton(page);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(70, 140, 99, 31));
@@ -71,12 +73,13 @@ public:
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
+		//rename
+		//resize
         listView = new QListView(page_2);
         listView->setObjectName(QString::fromUtf8("listView"));
         listView->setGeometry(QRect(220, 10, 256, 561));
         stackedWidget->addWidget(page_2);
         MainWindow->setCentralWidget(centralwidget);
-		//some resizing code
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);

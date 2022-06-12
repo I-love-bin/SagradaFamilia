@@ -15,6 +15,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-	ui->stackedWidget->setCurrentIndex(1);
+	if( ui->radioButton->isChecked() )
+	{
+		ui->stackedWidget->setCurrentIndex(1);
+	}
+	else if( ui->radioButton_2->isChecked() )
+	{
+		ui->stackedWidget->setCurrentIndex(2);
+	}
 
 }
