@@ -44,9 +44,12 @@ public:
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+		//newry added
+		centralwidget->resize(80,80);
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(-1, -1, 801, 601));
+		//stackedWidget->setGeometry(QRect(-1, -1, 801, 601)); 
+		stackedWidget->setGeometry(QRect(-1, -1, 800, 800));
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
 		//rename
@@ -74,7 +77,8 @@ public:
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
 		//rename
-		//resize
+		//failed to resize
+		//page_2->setSizePolicy(QSizePolicy::Expanding);
         listView = new QListView(page_2);
         listView->setObjectName(QString::fromUtf8("listView"));
         listView->setGeometry(QRect(220, 10, 256, 561));
