@@ -1,0 +1,4 @@
+#ifndef PARSEWINDOW_H
+#define PARSEWINDOW_H
+
+#endif // PARSEWINDOW_H
